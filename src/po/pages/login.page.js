@@ -33,12 +33,18 @@ export default class LoginPage {
         await this.password.setValue(password);
     }
 
+    async clearInput(element) {
+        await element.click();
+        await browser.keys(['Control', 'a']);
+        await browser.keys('Delete');
+    }
+
     async clearUsernameField() {
-        await this.username.clearValue();
+        await this.clearInput(this.username);
     }
 
     async clearPasswordField() {
-        await this.password.clearValue();
+        await this.clearInput(this.password);
     }
 
     async clickLoginButton() {

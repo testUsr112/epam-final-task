@@ -2,9 +2,10 @@
   "name": "final_task",
   "type": "module",
   "devDependencies": {
+    "@cucumber/cucumber": "^11.0.1",
     "@wdio/cli": "^9.20.0",
+    "@wdio/cucumber-framework": "^9.20.0",
     "@wdio/local-runner": "^9.20.0",
-    "@wdio/mocha-framework": "^9.20.0",
     "@wdio/spec-reporter": "^9.20.0"
   },
   "scripts": {

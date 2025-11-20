@@ -1,3 +1,12 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const featuresGlob = path.resolve(__dirname, '../tests/features/**/*.feature');
+const stepDefinitionsGlob = path.resolve(__dirname, '../tests/steps/**/*.js');
+
 export const config = {
     //
     // ====================
@@ -21,7 +30,8 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './../tests/specs/**/*.test.js'
+        //'./../tests/specs/**/*.test.js'
+        featuresGlob
     ],
     // Patterns to exclude.
     exclude: [
@@ -112,7 +122,7 @@ export const config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'mocha',
+    framework: 'cucumber',
 
     //
     // The number of times to retry the entire specfile when it fails as a whole
@@ -131,9 +141,22 @@ export const config = {
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
-    mochaOpts: {
-        ui: 'bdd',
-        timeout: 60000
+    cucumberOpts: {
+        require: [
+            stepDefinitionsGlob
+        ],
+        backtrace: false,
+        requireModule: [],
+        dryRun: false,
+        failFast: false,
+        format: ['pretty'],
+        snippets: true,
+        source: true,
+        profile: [],
+        strict: false,
+        tagExpression: '',
+        timeout: 60000,
+        ignoreUndefinedDefinitions: false
     },
 
     //
