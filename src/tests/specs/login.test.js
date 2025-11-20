@@ -1,5 +1,3 @@
-import logger from '@wdio/logger';
-const log = logger('LoginTest');
 import LoginPage from '../../po/pages/login.page.js';
 import InventoryPage from '../../po/pages/inventory.page.js';
 
